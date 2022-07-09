@@ -21,7 +21,5 @@ public class Demo {
         repository.add(otherFood);
         System.out.println();
 
-        System.out.println();
-        System.out.println();
     }
 }
