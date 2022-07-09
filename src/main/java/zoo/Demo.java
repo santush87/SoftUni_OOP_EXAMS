@@ -19,6 +19,8 @@ public class Demo {
         FoodRepository repository = new FoodRepositoryImpl();
         repository.add(someFood);
         repository.add(otherFood);
+
+        System.out.println();
         System.out.println();
 
     }
