@@ -8,7 +8,7 @@ import java.util.Collection;
 public abstract class BaseHelper implements Helper {
     private String name;
     private int energy;
-    private Collection<Instrument> instruments;
+    private final Collection<Instrument> instruments;
 
     public BaseHelper(String name, int energy) {
         setName(name);
@@ -30,11 +30,7 @@ public abstract class BaseHelper implements Helper {
     @Override
     public void work() {
         int currEnergy = this.energy - 10;
-        if (currEnergy >= 0) {
-            setEnergy(currEnergy);
-        } else {
-            setEnergy(0);
-        }
+        setEnergy(Math.max(currEnergy, 0));
     }
 
     @Override

@@ -24,11 +24,7 @@ public class InstrumentImpl implements Instrument {
     @Override
     public void use() {
         int currValue = this.power - 10;
-        if (currValue >= 0) {
-            setPower(currValue);
-        } else {
-            setPower(0);
-        }
+        setPower(Math.max(currValue, 0));
     }
 
     @Override

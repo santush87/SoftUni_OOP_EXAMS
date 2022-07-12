@@ -43,10 +43,6 @@ public class PresentImpl implements Present {
     @Override
     public void getCrafted() {
         int currEnergy = getEnergyRequired() - 10;
-        if (currEnergy > 0) {
-            setEnergyRequired(currEnergy);
-        } else {
-            setEnergyRequired(0);
-        }
+        setEnergyRequired(Math.max(currEnergy, 0));
     }
 }

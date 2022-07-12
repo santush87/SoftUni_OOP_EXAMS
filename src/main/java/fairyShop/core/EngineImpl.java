@@ -8,8 +8,8 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 
 public class EngineImpl implements Engine {
-    private Controller controller;
-    private BufferedReader reader;
+    private final Controller controller;
+    private final BufferedReader reader;
 
     public EngineImpl() {
         this.controller = new ControllerImpl();

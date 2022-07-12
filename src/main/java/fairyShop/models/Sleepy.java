@@ -11,10 +11,6 @@ public class Sleepy extends BaseHelper{
     @Override
     public void work() {
         int currEnergy = getEnergy() - 5;
-        if (currEnergy >= 0) {
-            setEnergy(currEnergy);
-        } else {
-            setEnergy(0);
-        }
+        setEnergy(Math.max(currEnergy, 0));
     }
 }
