@@ -1,6 +1,5 @@
 package fairyShop.repositories;
 
-import fairyShop.models.Helper;
 import fairyShop.models.Present;
 
 import java.util.ArrayList;
