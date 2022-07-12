@@ -3,7 +3,6 @@ package zoo.entities.areas;
 import zoo.common.ExceptionMessages;
 import zoo.entities.animals.Animal;
 import zoo.entities.foods.Food;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -57,12 +56,23 @@ public abstract class BaseArea implements Area{
                 .forEach(s->s.eat());
     }
 
-    public abstract String getInfo();
-//        StringBuilder builder = new StringBuilder();
-//        builder.append(String.format("%s (%s)",this.name, this.));
-//
-//        return builder.toString();
+    public  String getInfo(){
+        StringBuilder builder = new StringBuilder();
+        builder.append(String.format("%s (%s)",this.getName(), this.getClass().getSimpleName())).append(System.lineSeparator());
+        builder.append("Animals: ");
+        if (getAnimals().isEmpty()){
+            builder.append("none");
+        } else {
+            for (Animal animal : getAnimals()) {
+                builder.append(animal.getName()+" ");
+            }
+            builder.append(System.lineSeparator());
+        }
+        builder.append(String.format("Foods: %d", getFoods().size())).append(System.lineSeparator());
+        builder.append(String.format("Calories: %d", sumCalories())).append(System.lineSeparator());
 
+        return builder.toString().trim();
+    }
 
     @Override
     public String getName() {

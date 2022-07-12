@@ -70,37 +70,30 @@ public class EngineImpl implements Engine {
         return result;
     }
     private String addArea(String[] data) {
-        //TODO
-        return null;
+        return controller.addArea(data[0], data[1]);
     }
 
     private String buyFood(String[] data) {
-        //TODO
-        return null;
+        return controller.buyFood(data[0]);
     }
 
     private String foodForArea(String[] data) {
-        //TODO
-        return null;
+        return controller.foodForArea(data[0], data[1]);
     }
 
     private String addAnimal(String[] data) {
-        //TODO
-        return null;
+        return controller.addAnimal(data[0],data[1],data[2],data[3], Double.parseDouble(data[4]));
     }
 
     private String feedAnimal(String[] data) {
-        //TODO
-        return null;
+        return controller.feedAnimal(data[0]);
     }
 
     private String calculateKg(String[] data) {
-        //TODO
-        return null;
+        return controller.calculateKg(data[0]);
     }
 
     private String getStatistics() {
-        //TODO
-        return null;
+        return controller.getStatistics();
     }
 }

@@ -59,4 +59,9 @@ public abstract class BaseAnimal implements Animal{
     protected void increaseKG(double toAddKg){
         setKg(getKg() + toAddKg);
     }
+
+    @Override
+    public String toString() {
+        return this.kind + " " + this.name;
+    }
 }

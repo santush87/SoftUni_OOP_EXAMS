@@ -6,10 +6,4 @@ public class LandArea extends BaseArea{
     public LandArea(String name) {
         super(name, CAPACITY);
     }
-
-
-    @Override
-    public String getInfo() {
-        return null;
-    }
 }

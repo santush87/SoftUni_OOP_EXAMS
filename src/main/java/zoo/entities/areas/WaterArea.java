@@ -6,9 +6,4 @@ public class WaterArea extends BaseArea{
     public WaterArea(String name) {
         super(name, CAPACITY);
     }
-
-    @Override
-    public String getInfo() {
-        return null;
-    }
 }
