@@ -2,8 +2,8 @@ package zoo.entities.foods;
 
 public abstract class BaseFood implements  Food{
 
-    private int calories;
-    private double price;
+    private final int calories;
+    private final double price;
 
     public BaseFood(int calories, double price) {
         this.calories = calories;
