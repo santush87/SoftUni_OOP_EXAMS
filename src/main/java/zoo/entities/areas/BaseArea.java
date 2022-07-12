@@ -9,8 +9,8 @@ import java.util.Collection;
 public abstract class BaseArea implements Area{
     private String name;
     private int capacity;
-    private Collection<Food> foods;
-    private Collection<Animal> animals;
+    private final Collection<Food> foods;
+    private final Collection<Animal> animals;
 
     public BaseArea(String name, int capacity) {
         setName(name);
@@ -32,7 +32,7 @@ public abstract class BaseArea implements Area{
 
     public int sumCalories(){
         return this.foods.stream()
-                .mapToInt(s->s.getCalories()).sum();
+                .mapToInt(Food::getCalories).sum();
     }
 
     public void addAnimal(Animal animal){
@@ -52,8 +52,8 @@ public abstract class BaseArea implements Area{
     }
 
     public void feed(){
-        this.animals.stream()
-                .forEach(s->s.eat());
+        this.animals
+                .forEach(Animal::eat);
     }
 
     public  String getInfo(){
@@ -64,7 +64,7 @@ public abstract class BaseArea implements Area{
             builder.append("none");
         } else {
             for (Animal animal : getAnimals()) {
-                builder.append(animal.getName()+" ");
+                builder.append(animal.getName()).append(" ");
             }
             builder.append(System.lineSeparator());
         }

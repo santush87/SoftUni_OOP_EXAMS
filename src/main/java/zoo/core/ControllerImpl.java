@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class ControllerImpl implements Controller {
-    private FoodRepository foodRepository;
-    private Collection<Area> areas;
+    private final FoodRepository foodRepository;
+    private final Collection<Area> areas;
 
     public ControllerImpl() {
         this.foodRepository = new FoodRepositoryImpl();
@@ -62,19 +62,16 @@ public class ControllerImpl implements Controller {
         if (food == null) {
             throw new IllegalArgumentException(String.format(ExceptionMessages.NO_FOOD_FOUND, foodType));
         } else {
-          Area area = getAreaByName(areaName);
-          if (area != null){
-              area.addFood(food);
-              this.foodRepository.remove(food);
-              return String.format(ConstantMessages.SUCCESSFULLY_ADDED_FOOD_IN_AREA, foodType, areaName);
-          }
+            Area area = getAreaByName(areaName);
+            area.addFood(food);
+            this.foodRepository.remove(food);
+            return String.format(ConstantMessages.SUCCESSFULLY_ADDED_FOOD_IN_AREA, foodType, areaName);
         }
-        return null;
     }
 
     private Area getAreaByName(String areaName) {
         return this.areas.stream()
-                .filter(s->s.getName().equals(areaName))
+                .filter(s -> s.getName().equals(areaName))
                 .findFirst()
                 .get();
     }
@@ -83,16 +80,16 @@ public class ControllerImpl implements Controller {
     public String addAnimal(String areaName, String animalType, String animalName, String kind, double price) {
         Area area = getAreaByName(areaName);
         String areaType = area.getClass().getSimpleName();
-        switch (animalType){
+        switch (animalType) {
             case "AquaticAnimal":
-                if (areaType.equals("WaterArea")){
+                if (areaType.equals("WaterArea")) {
                     area.addAnimal(new AquaticAnimal(animalName, kind, price));
                 } else {
                     return String.format(ConstantMessages.AREA_NOT_SUITABLE);
                 }
                 break;
             case "TerrestrialAnimal":
-                if (areaType.equals("LandArea")){
+                if (areaType.equals("LandArea")) {
                     area.addAnimal(new TerrestrialAnimal(animalName, kind, price));
                 } else {
                     return String.format(ConstantMessages.AREA_NOT_SUITABLE);
@@ -124,7 +121,7 @@ public class ControllerImpl implements Controller {
     public String getStatistics() {
         StringBuilder builder = new StringBuilder();
         this.areas.stream()
-                .forEach(s->builder.append(s.getInfo()).append(System.lineSeparator()));
+                .forEach(s -> builder.append(s.getInfo()).append(System.lineSeparator()));
 
         return builder.toString().trim();
     }
