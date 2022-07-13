@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class DriverRepository implements Repository<Driver> {
-    private Collection<Driver> data;
+    private final Collection<Driver> data;
 
     public DriverRepository() {
         this.data = new ArrayList<>();

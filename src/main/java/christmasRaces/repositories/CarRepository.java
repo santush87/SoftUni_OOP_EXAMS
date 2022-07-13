@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class CarRepository implements Repository<Car> {
-    private Collection<Car> data;
+    private final Collection<Car> data;
 
     public CarRepository() {
         this.data = new ArrayList<>();

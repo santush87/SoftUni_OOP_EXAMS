@@ -9,7 +9,7 @@ import java.util.Collection;
 public class RaceImpl implements Race {
     private String name;
     private int laps;
-    private Collection<Driver> drivers;
+    private final Collection<Driver> drivers;
 
     public RaceImpl(String name, int laps) {
         setName(name);
@@ -24,7 +24,7 @@ public class RaceImpl implements Race {
         } else if (!driver.getCanParticipate()) {
             throw new IllegalArgumentException(String.format(ExceptionMessages.DRIVER_NOT_PARTICIPATE, driver.getName()));
         } else if (this.drivers.contains(driver)) {
-            throw new IllegalArgumentException(String.format(ExceptionMessages.DRIVER_EXISTS, driver.getName(), getName()));
+            throw new IllegalArgumentException(String.format(ExceptionMessages.DRIVER_EXISTS, driver.getName()));
         } else {
             this.drivers.add(driver);
         }
@@ -42,7 +42,7 @@ public class RaceImpl implements Race {
         if (laps >= 1) {
             this.laps = laps;
         } else {
-            throw new IllegalArgumentException(String.format(ExceptionMessages.INVALID_NUMBER_OF_LAPS));
+            throw new IllegalArgumentException(String.format(ExceptionMessages.INVALID_NUMBER_OF_LAPS,1));
         }
     }
 

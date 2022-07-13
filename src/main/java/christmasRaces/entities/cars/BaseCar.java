@@ -3,6 +3,7 @@ package christmasRaces.entities.cars;
 import christmasRaces.common.ExceptionMessages;
 
 public abstract class BaseCar implements Car {
+
     private String model;
     private int horsePower;
     private double cubicCentimeters;
@@ -25,7 +26,9 @@ public abstract class BaseCar implements Car {
         }
     }
 
-    protected abstract void  setHorsePower(int horsePower);
+    protected void  setHorsePower(int horsePower) {
+        this.horsePower = horsePower;
+    }
 
     protected void setCubicCentimeters(double cubicCentimeters) {
         this.cubicCentimeters = cubicCentimeters;
