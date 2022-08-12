@@ -25,7 +25,7 @@ public class ShortHouse extends BaseHouse{
     public String getStatistics() {
         StringBuilder builder = new StringBuilder();
 
-        builder.append(getName()).append(" ShortHouse");
+        builder.append(getName()).append(" ShortHouse:");
         builder.append(System.lineSeparator());
         builder.append("Cats: ");
         if (super.getCats().size() == 0) {
@@ -37,6 +37,6 @@ public class ShortHouse extends BaseHouse{
         }
         builder.append(System.lineSeparator());
         builder.append("Toys: ").append(super.getToys().size()).append(" ").append("Softness: ").append(sumSoftness());
-        return builder.toString();
+        return builder.toString().trim();
     }
 }
