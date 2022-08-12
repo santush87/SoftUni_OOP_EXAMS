@@ -136,7 +136,7 @@ public class ControllerImpl implements Controller {
     @Override
     public String getStatistics() {
         StringBuilder builder = new StringBuilder();
-        this.houses.stream()
+        this.houses
                 .forEach(s->builder.append(s.getStatistics()).append(System.lineSeparator()));
 
         return builder.toString().trim();

@@ -5,9 +5,9 @@ import catHouse.entities.toys.Toy;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class ToyRepository implements Repository {
+public class ToyRepository implements Repository<Toy> {
 
-    private Collection<Toy> toys;
+    private final Collection<Toy> toys;
 
     public ToyRepository() {
         this.toys = new ArrayList<>();
