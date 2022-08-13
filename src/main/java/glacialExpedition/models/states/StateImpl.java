@@ -7,7 +7,7 @@ import java.util.Collection;
 
 public class StateImpl implements State{
     private String name;
-    private Collection<String> exhibits;
+    private final Collection<String> exhibits;
 
     public StateImpl(String name) {
         setName(name);

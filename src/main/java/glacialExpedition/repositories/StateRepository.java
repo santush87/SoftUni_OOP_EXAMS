@@ -8,7 +8,7 @@ import java.util.Collections;
 
 public class StateRepository implements Repository<State>{
 
-    private Collection<State> states;
+    private final Collection<State> states;
 
     public StateRepository() {
         this.states = new ArrayList<>();
