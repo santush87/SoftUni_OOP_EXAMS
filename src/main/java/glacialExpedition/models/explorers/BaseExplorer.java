@@ -1,16 +1,19 @@
 package glacialExpedition.models.explorers;
 
+import glacialExpedition.common.ConstantMessages;
 import glacialExpedition.common.ExceptionMessages;
+import glacialExpedition.models.suitcases.Carton;
 import glacialExpedition.models.suitcases.Suitcase;
 
 public abstract class BaseExplorer implements Explorer {
     private String name;
     private double energy;
-    private Suitcase suitcase;
+    private final Suitcase suitcase;
 
     public BaseExplorer(String name, double energy) {
         setName(name);
         setEnergy(energy);
+        this.suitcase = new Carton();
     }
 
     public void setName(String name) {
@@ -54,5 +57,18 @@ public abstract class BaseExplorer implements Explorer {
             currEnergy = 0;
         }
         setEnergy(currEnergy);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(String.format(ConstantMessages.FINAL_EXPLORER_NAME, getName())).append(System.lineSeparator());
+        builder.append(String.format(ConstantMessages.FINAL_EXPLORER_ENERGY, getEnergy())).append(System.lineSeparator());
+        if (getSuitcase().getExhibits().isEmpty()) {
+            builder.append(String.format(ConstantMessages.FINAL_EXPLORER_SUITCASE_EXHIBITS, "None")).append(System.lineSeparator());
+        } else {
+            builder.append(String.format(ConstantMessages.FINAL_EXPLORER_SUITCASE_EXHIBITS,String.join(", ", getSuitcase().getExhibits())));
+        }
+        return builder.toString().trim();
     }
 }

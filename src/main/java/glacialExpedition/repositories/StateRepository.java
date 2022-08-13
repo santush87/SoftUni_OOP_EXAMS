@@ -16,7 +16,8 @@ public class StateRepository implements Repository<State>{
 
     @Override
     public Collection<State> getCollection() {
-        return Collections.unmodifiableCollection(states);
+        return this.states;
+//        return Collections.unmodifiableCollection(states);
     }
 
     @Override

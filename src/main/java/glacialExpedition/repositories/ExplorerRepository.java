@@ -4,7 +4,6 @@ import glacialExpedition.models.explorers.Explorer;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 
 public class ExplorerRepository implements Repository<Explorer>{
     private final Collection<Explorer> explorers;
@@ -15,7 +14,8 @@ public class ExplorerRepository implements Repository<Explorer>{
 
     @Override
     public Collection<Explorer> getCollection() {
-        return Collections.unmodifiableCollection(explorers);
+        return this.explorers;
+//        return Collections.unmodifiableCollection(explorers);
     }
 
     @Override
@@ -38,5 +38,12 @@ public class ExplorerRepository implements Repository<Explorer>{
                 .filter(s->s.getName().equals(name))
                 .findFirst()
                 .orElse(null);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        explorers.forEach(s->builder.append(s).append(System.lineSeparator()));
+        return builder.toString();
     }
 }

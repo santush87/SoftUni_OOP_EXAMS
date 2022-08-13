@@ -7,7 +7,7 @@ import java.util.Collection;
 
 public class StateImpl implements State{
     private String name;
-    private final Collection<String> exhibits;
+    private Collection<String> exhibits;
 
     public StateImpl(String name) {
         setName(name);
@@ -29,5 +29,9 @@ public class StateImpl implements State{
             throw new NullPointerException(ExceptionMessages.STATE_NAME_NULL_OR_EMPTY);
         }
         this.name = name;
+    }
+
+    public void setExhibits(Collection<String> exhibits) {
+        this.exhibits = exhibits;
     }
 }
